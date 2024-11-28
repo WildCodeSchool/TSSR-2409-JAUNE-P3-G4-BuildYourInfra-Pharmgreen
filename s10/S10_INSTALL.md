@@ -13,15 +13,15 @@ Set-DnsClientServerAddress -InterfaceIndex (Get-NetAdapter).ifIndex -ServerAddre
 
 # Ajout du rôle Active Directory
 Add-WindowsFeature -Name "RSAT-AD-Tools" -IncludeManagementTools -IncludeAllSubFeature
-2Add-WindowsFeature -Name "AD-Domain-Services" -IncludeManagementTools -IncludeAllSubFeature
+Add-WindowsFeature -Name "AD-Domain-Services" -IncludeManagementTools -IncludeAllSubFeature
 
 ```
 - Ajout du serveur au domaine pharmgreen.lan :
 	-  Depuis la SConfig > `1) Domain/workgroup`
 ``` Powershell
-D
-pharmgreen.lan
-pharmgreen.lan\Administrator
+D				# Pour entrer dans un domaine
+pharmgreen.lan			# Entrer le nom du domaine à rejoindre
+pharmgreen.lan\Administrator	# Entrer un compte du domaine autorisé à nous y ajouter
 ```
 - Rentrer le mot de passe administrateur, la machine rejoint le domaine et redémarrer la machine.
 
