@@ -1,0 +1,47 @@
+"Communication";"OU PgUsers"
+"Publicite";"OU PgUsers/Communication"
+"RPP";"OU PgUsers/Communication"
+
+"DirectionFinanciere";"OU PgUsers"
+"ControleGestion";"OU PgUsers/DirectionFinanciere"
+"Finance";"OU PgUsers/DirectionFinanciere"
+"Comptabilite";"OU PgUsers/DirectionFinanciere"
+
+"DirectionMarketing";"OU PgUsers"
+"MarketingDigital";"OU PgUsers/DirectionMarketing"
+"MarketingOperationnel";"OU PgUsers/DirectionMarketing"
+"MarketingProduit";"OU PgUsers/DirectionMarketing"
+"MarketingStrategique";"OU PgUsers/DirectionMarketing"
+
+"R&D";"OU PgUsers"
+"InnovationStrategie";"OU PgUsers/R&D"
+"Laboratoire";"OU PgUsers/R&D"
+
+"RH";"OU PgUsers"
+"Formation";"OU PgUsers/RH"
+"GestionPerformances";"OU PgUsers/RH"
+"Recrutement";"OU PgUsers/RH"
+"SST";"OU PgUsers/RH"
+
+"ServiceJuridique";"OU PgUsers"
+"Contentieux";"OU PgUsers/ServiceJuridique"
+"Contrats";"OU PgUsers/ServiceJuridique"
+
+"ServicesGeneraux";"OU PgUsers"
+"GestionImmobiliere";"OU PgUsers/ServicesGeneraux"
+"Logistique";"OU PgUsers/ServicesGeneraux"
+
+"SystemesInformation";"OU PgUsers"
+"Data";"OU PgUsers/SystemesInformation"
+"DeveloppementLogiciel";"OU PgUsers/SystemesInformation"
+
+"VentesDeveloppementCommercial";"OU PgUsers"
+"ADV";"OU PgUsers/VentesDeveloppementCommercial"
+"B2B";"OU PgUsers/VentesDeveloppementCommercial"
+"B2C";"OU PgUsers/VentesDeveloppementCommercial"
+"DeveloppementInternational";"OU PgUsers/VentesDeveloppementCommercial"
+"GrandsComptes";"OU PgUsers/VentesDeveloppementCommercial"
+"Achat";"OU PgUsers/VentesDeveloppementCommercial"
+"ServiceClient";"OU PgUsers/VentesDeveloppementCommercial"
+
+"DirectionGenerale";"OU PgUsers"
