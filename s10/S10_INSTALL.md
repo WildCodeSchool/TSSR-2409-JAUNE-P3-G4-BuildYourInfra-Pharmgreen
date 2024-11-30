@@ -38,6 +38,99 @@ powercfg.exe /hibernate off
   - `Server Manager` > `Manage` > `Add Server`
   - "Servers that are in the current domain" > Ajouter `SRVAD2`
 
-# Installation SRVDHCP - Serveur Windows Server 2022 Core avec le rôle DHCP
+Voici une version mise en page et corrigée de ton guide :
 
-# Création d'un CT Serveur Linux Debian
+---
+
+# Création d'un Conteneur Serveur Linux Debian, Intégration au Domaine et Installation de SSH
+
+## 1. Création du Conteneur
+
+1. **Choisir "Créer un conteneur"** :
+   - Sélectionnez l'option pour créer un nouveau conteneur dans votre interface de gestion (probablement Proxmox ou un autre outil).
+
+2. **Configuration de l'ID et du Nom d'hôte** :
+   - Attribuez un **ID** unique pour le conteneur (par exemple, `647`).
+   - Choisissez un **nom d'hôte** pour le conteneur, par exemple `G4-Debian12-CT`.
+
+3. **Sélection de la Template** :
+   - Dans la section **local-templates**, sélectionnez la template **Debian12** (ou la version de Debian souhaitée).
+
+4. **Configuration des ressources** :
+   - **Espace disque** : 32 Go.
+   - **RAM** : 4 Go.
+   - **SWAP** : 1 Go.
+   - **Processeur** : 1 cœur CPU.
+
+5. **Configuration du réseau** :
+   - **IPv4** : Attribuez une adresse **IP statique**.
+   - **IPv6** : Configurez-le en **DHCP**.
+   - **Firewall** : Décochez l'option du firewall.
+
+6. **Configuration du DNS** :
+   - Dans **Domaine DNS**, entrez `pharmgreen.lan` (ou votre domaine).
+   - Dans **Serveur DNS**, entrez l'IP de votre serveur DNS Active Directory.
+
+---
+
+## 2. Rejoindre l'Active Directory
+
+1. **Installer les paquets nécessaires** :
+   Pour ajouter la machine au domaine, installez les paquets requis en exécutant la commande suivante :
+   ```bash
+   sudo apt update && sudo apt install -y realmd libnss-sss libpam-sss sssd sssd-tools adcli samba-common-bin oddjob oddjob-mkhomedir packagekit
+   ```
+
+2. **Rejoindre le domaine** :
+   Utilisez la commande suivante pour joindre le domaine **pharmgreen.lan** (Vous pouvez remplacer `administrator` par le nom d'un utilisateur ayant les droits nécessaires) :
+   ```bash
+   sudo realm join -U administrator pharmgreen.lan
+   ```
+
+3. **Vérifier l'ajout au domaine** :
+   Après avoir exécuté la commande précédente, vérifiez que la machine Debian a bien été ajoutée au domaine en exécutant :
+   ```bash
+   sudo realm list
+   ```
+   Vous pouvez également vérifier sur votre serveur Active Directory que Debian a bien été ajouté.
+
+---
+
+## 3. Installation et Configuration de SSH
+
+1. **Installer OpenSSH Server** :
+   Pour installer le serveur SSH, exécutez la commande suivante :
+   ```bash
+   sudo apt install openssh-server
+   ```
+
+2. **Vérifier si le serveur SSH est actif** :
+   Pour vérifier si le serveur SSH est actif, utilisez la commande :
+   ```bash
+   sudo systemctl status ssh
+   ```
+   Si le service n'est pas actif, vous pouvez le démarrer avec :
+   ```bash
+   sudo systemctl start ssh
+   ```
+
+3. **Se connecter via SSH** :
+   Pour vous connecter au serveur via SSH, vous pouvez utiliser la commande suivante depuis une autre machine (en remplaçant `<Username>` par un utilisateur du domaine et `<hostname>` par le nom d'hôte ou l'adresse IP de la machine) :
+   ```bash
+   ssh <Username>@<hostname>
+   ```
+   Exemple :
+   ```bash
+   ssh wilder@srvad1.pharmgreen.lan
+   ```
+
+---
+
+### Vérifications et Dépannage
+
+- Si vous rencontrez des problèmes de connexion SSH, assurez-vous que le port 22 est ouvert dans le pare-feu (si utilisé) et que l'authentification par mot de passe ou par clé est correctement configurée.
+- Si la commande `realm join` échoue, vérifiez que le DNS est correctement configuré et que le serveur Active Directory est accessible depuis la machine Debian.
+
+---
+
+# Installation SRVDHCP - Serveur Windows Server 2022 Core avec le rôle DHCP
