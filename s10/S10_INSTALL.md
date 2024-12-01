@@ -9,8 +9,7 @@
 New-NetIPAddress -IPAddress 10.15.200.2 -PrefixLength 16 -InterfaceIndex (Get-NetAdapter).ifIndex -DefaultGateway 10.15.255.254
 
 # Ajout de l'adresse du serveur DNS
-Set-DnsClientServerAddress -InterfaceIndex (Get-NetAdapter).ifIndex -ServerAddresses ("127.0.0.1")
-
+Set-DnsClientServerAddress -InterfaceIndex (Get-NetAdapter).ifIndex -ServerAddresses ("10.15.200.1")
 # Ajout du rôle Active Directory
 Add-WindowsFeature -Name "RSAT-AD-Tools" -IncludeManagementTools -IncludeAllSubFeature
 Add-WindowsFeature -Name "AD-Domain-Services" -IncludeManagementTools -IncludeAllSubFeature
@@ -28,7 +27,7 @@ pharmgreen.lan\Administrator	# Entrer un compte du domaine autorisé à nous y a
 - Depuis la SConfig > `15) Exit to command line (Powershell)`
 ``` Powershell
 # Promotion en tant que contrôleur de domaine
-Install-ADDSDomainController -CreateDnsDelegation:$false -DatabasePath 'C:\Windows\NTDS' -DomainName 'pharmgreen.lan' -SysvolPath 'C:\Windows\SYSVOL'
+Install-ADDSDomainController -CreateDnsDelegation:$false -DatabasePath 'C:\Windows\NTDS' -DomainName 'pharmgreen.lan' -SysvolPath 'C:\Windows\SYSVOL' -Credential (Get-Credential "pharmgreen.lan\administrator")
 
 # Désactiver la mise en veille automatique
 powercfg.exe /hibernate off
