@@ -1,4 +1,11 @@
 # Installation SRVAD1 - Serveur Windows Server 2022 GUI avec les rôles AD-DS, DNS
+- Cloner un Template WindowsServer 2022
+- Aller dans le Server Manager > `Manage` > `Add roles & features` :
+- Choisir `Active Directory Domain Service` ;
+- Laisser tous les critères par défaut et laisser la fonctionnalité s'installer (/!\ Ne fermez PAS la fenêtre une fois l'installation terminée) ;
+- Cliquer sur `Promote this server to a domain controller` ;
+- Choisir d'ajouter une nouvelle forêt : `Add new forest`, que l'on nommera ici `pharmgreen.lan` ;
+- Laisser par la suite tout le reste par défaut et finalisez l'installation (le serveur nécessitera un redémarrage pour cela) ;
 
 # Installation SRVAD2 - Serveur Windows Server 2022 Core avec le rôle AD-DS
 - Cloner un Template WindowsServer 2022 Core
@@ -36,8 +43,6 @@ powercfg.exe /hibernate off
 - Sur le serveur SRVAD1, en GUI
   - `Server Manager` > `Manage` > `Add Server`
   - "Servers that are in the current domain" > Ajouter `SRVAD2`
-
-Voici une version mise en page et corrigée de ton guide :
 
 ---
 
