@@ -1,26 +1,58 @@
 # Mise en place des GPO
 ## GPO sécurité
 ### 1. **Politique de mot de passe**  
-  - Créez une GPO nommée : `computer-security-passwordPolicies-enable-v1`.
-  - Modifiez la **Default Domain Policy** :
-    - **Chemin** : Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Password Policy.
-    - **Paramètres à configurer** :
-      1. **Minimum password length** : 12
-      2. **Password must meet complexity requirements** : Activez cette option.
-      3. **Enforce password history** :
-         - Activez cette option.
-         - Spécifiez "**24**" le nombre de mots de passe précédents qu’un utilisateur ne pourra pas réutiliser.
-      4. **Minimum password age** :
-         - Activez cette option.
-         - Spécifiez "**1**" le nombre de jours avant qu'un mot de passe puisse être modifié à nouveau.
-      5. **Maximum password age** :
-         - Activez cette option.
-         - Définissez "**30**"le nombre de jours après lesquels un mot de passe expirera.
+- Créez une GPO nommée : `computer-security-passwordPolicies-enable-v1`.
+- Modifiez la **Default Domain Policy** :
+- **Chemin** : Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Password Policy.
+- **Paramètres à configurer** :
+  1. **Minimum password length** : 12
+  2. **Password must meet complexity requirements** : Activez cette option.
+  3. **Enforce password history** :
+     - Activez cette option.
+     - Spécifiez "**24**" le nombre de mots de passe précédents qu’un utilisateur ne pourra pas réutiliser.
+  4. **Minimum password age** :
+     - Activez cette option.
+     - Spécifiez "**1**" le nombre de jours avant qu'un mot de passe puisse être modifié à nouveau.
+  5. **Maximum password age** :
+     - Activez cette option.
+     - Définissez "**30**"le nombre de jours après lesquels un mot de passe expirera.
 
-2. Verrouillage de compte
-3. Restriction d'installation de logiciel pour les utilisateurs non-administrateurs
-4. Blocage de l'accès à la base de registre
-5. Blocage complet ou partiel au panneau de configuration
+### 2. **Verrouillage de compte**  
+- Créez une GPO nommée : `computer-security-accountLockout-enable-v1`.  
+- Modifiez la **Default Domain Policy** :  
+- **Chemin** : Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Account Lockout Policy.  
+- **Paramètres à configurer** :  
+  1. **Account lockout threshold** : Définir à **3** tentatives incorrectes.  
+  2. **Account lockout duration** : Définir à **10 minutes**.  
+  3. **Reset account lockout counter after** : Définir à **10 minutes**.  
+  4. Activer **Allow administrator account lockout**  
+
+### 3. **Restriction d'installation de logiciel pour les utilisateurs non-administrateurs**  
+- Créez une GPO nommée : `computer-security-SoftwareInstallation-deny-v1`.
+- Faites un clic droit sur la GPO et sélectionnez **Edit**.
+- **Chemin** : Computer Configuration > Policies > Administrative Templates > Windows Components > Windows Installer.
+- **Paramètres à configurer** :
+  1. **Prohibit User Installs** : Activez cette option pour interdire aux utilisateurs d'installer des logiciels.
+  2. **Always install with elevated privileges** : Désactivez cette option pour éviter l'installation de logiciels avec des privilèges élevés.
+
+### 4. **Blocage de l'accès à la base de registre**  
+- Créez une GPO nommée : `computer-security-accessRegistre-deny-v1`.
+- Faites un clic droit sur la GPO et sélectionnez **Edit**.
+- **Chemin** : Computer Configuration > Policies > Administrative Templates > System > Prevent Access to the Registry Editor.
+- **Prevent access to registry editing tools** : Activez cette option pour bloquer l'accès à l'éditeur de registre pour les utilisateurs.
+
+### 5. **Blocage complet ou partiel au panneau de configuration**  
+- Créez une GPO nommée : `computer-security-controlPanel-deny-v1`.
+- Faites un clic droit sur la GPO et sélectionnez **Edit**.
+- **Chemin** : Computer Configuration > Policies > Administrative Templates > Control Panel.
+- **Prohibit access to the Control Panel and PC settings** : Activez cette option pour interdire l'accès complet au Panneau de configuration et aux paramètres PC.
+
+6. Restriction des périphériques amovible
+7. Gestion d'un compte du domaine qui est administrateur local des machines
+8. Gestion du pare-feu
+9. Écran de veille avec mot de passe en sortie
+10. Limitation des tentatives d'élévation de privilèges
+11. Politique de sécurité PowerShell
 6. Restriction des périphériques amovible
 7. Gestion d'un compte du domaine qui est administrateur local des machines
 8. Gestion du pare-feu
