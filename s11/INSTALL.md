@@ -42,7 +42,7 @@ Et pour le **Screen saver timeout**,  il faut cocher le **Enable** pour l'active
 Fermer la fenetre **Group Policy Management Editor** et faite click droit sur le dossier PgUsers et selectionner **Link an Existing GPO**
 ![](../Ressources/link_gpo.png)  
 Sur la fenetre **Select GPO**, selectionner le GPO qu'on veut enregistrer: **User-Configuration-Power**
-![](../Ressources/select_gpo.png)
+![](../Ressources/select_gpo.png)  
 Votre GPO de verrouillage automatique des sessions est fait
 
 4. Déploiement (publication) de logiciels
