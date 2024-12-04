@@ -18,36 +18,25 @@
 
 ### 3. Gestion de l'alimentation
 #### verrouillage automatique des sessions
-Afin d'intégrer le GPO du verrouillage automatique des sessions, nous allons dans le group Policy Management.  
-Sur le dossier **Group Policy Objects** , click droit et selectionner **New**  
-![create gpo](../Ressources/create_gpo.png)  
-Entrer le nom du GPO: **User-Configuration-Power**  
-![name gpo](../Ressources/new_gpo.png)  
-Click droit sur le GPO et selectionner **Edit...**  
-![edit gpo](../Ressources/edit_gpo.png)  
-Une nouvelle fenetre nommer **Group Policy Management Editor** s'ouvrira  
-![Fenetre GPME](../Ressources/gpme.png)  
-Il faudra selectionner 3 éléments: 
-- Enable screen saver  
-![ESS](../Ressources/enable_screen_saver.png)  
-- Password protect the screen saver  
-![PPTSS](../Ressources/password_protect_the_screen_saver.png)  
-- Screen saver timeout  
-![SST](../Ressources/screen_saver_timeout.png)  
-Pour le **Enable screen saver** et **Password protect the screen saver**, il faut cocher le **Enable** pour l'activer puis enregistrer les modifications.  
-![](../Ressources/enable_screen_saver_c.png)  
-![](../Ressources/password_protect_the_screen_saver_c.png)  
-Et pour le **Screen saver timeout**,  il faut cocher le **Enable** pour l'activer puis entrer le temps avant que l'écran se mette en veille, par exemple dans notre cas on a mis 600 seconde (10 minutes) puis on enregistre les modifications.
-![](../Ressources/screen_saver_timeout_c.png)  
-Fermer la fenetre **Group Policy Management Editor** et faite click droit sur le dossier PgUsers et selectionner **Link an Existing GPO**
-![](../Ressources/link_gpo.png)  
-Sur la fenetre **Select GPO**, selectionner le GPO qu'on veut enregistrer: **User-Configuration-Power**
-![](../Ressources/select_gpo.png)  
-Votre GPO de verrouillage automatique des sessions est fait
+- Afin d'intégrer le GPO du verrouillage automatique des sessions, nous allons dans le group Policy Management.  
+- Sur le dossier **Group Policy Objects** , click droit et selectionner **New**  
+- Entrer le nom du GPO: **User-Configuration-Power**  
+- Click droit sur le GPO et selectionner **Edit...**  
+- Une nouvelle fenetre nommer **Group Policy Management Editor** s'ouvrira  
+- Il faudra selectionner 3 éléments:
+  - Enable screen saver  
+  - Password protect the screen saver  
+  - Screen saver timeout  
 
-4. Déploiement (publication) de logiciels
-5. Redirection de dossiers (Documents, Bureau, etc.)
-6. Configuration des paramètres du navigateur (Firefox ou Chrome)
+- Pour le **Enable screen saver** et **Password protect the screen saver**, il faut cocher le **Enable** pour l'activer puis enregistrer les modifications.  
+- Et pour le **Screen saver timeout**,  il faut cocher le **Enable** pour l'activer puis entrer le temps avant que l'écran se mette en veille, par exemple dans notre cas on a mis 600 seconde (10 minutes) puis on enregistre les modifications.
+- Fermer la fenetre **Group Policy Management Editor** et faite click droit sur le dossier PgUsers et selectionner **Link an Existing GPO**
+- Sur la fenetre **Select GPO**, selectionner le GPO qu'on veut enregistrer: **User-Configuration-Power**
+- Votre GPO de verrouillage automatique des sessions est fait
+
+### 4. Déploiement (publication) de logiciels
+### 5. Redirection de dossiers (Documents, Bureau, etc.)
+### 6. Configuration des paramètres du navigateur (Firefox ou Chrome)
 # Installation de Glpi
 ---
 # Configuration DHCP
