@@ -69,16 +69,16 @@
     - **pwsh.exe**
 ## GPO standard
 ### 1. Fond d'écran
-
+- Crée un dossier nommé : `Wallpaper` et ajouter une image pour le fond d'écran
+- Partager le dossier avec d'autre utilisateur
+- Créez une GPO nommée : `User-Configuration-Wallpaper-Default-v1`.
+    - **Chemin** : User Configuration > Policies > Administrative Template > Desktop > Desktop > Desktop Wallpaper.
+    - Mettre en **Enable** et metter le lien de l'image du dossier Wallpaper
 ### 2. Mappage de lecteurs
 
 ### 3. Gestion de l'alimentation
 #### verrouillage automatique des sessions
-- Afin d'intégrer le GPO du verrouillage automatique des sessions, nous allons dans le group Policy Management.  
-- Sur le dossier **Group Policy Objects** , click droit et selectionner **New**  
-- Entrer le nom du GPO: **User-Configuration-Power**  
-- Click droit sur le GPO et selectionner **Edit...**  
-- Une nouvelle fenetre nommer **Group Policy Management Editor** s'ouvrira  
+- Créez une GPO nommée : `User-Configuration-Power`.
 - Il faudra selectionner 3 éléments:
   - Enable screen saver  
   - Password protect the screen saver  
@@ -88,7 +88,6 @@
 - Et pour le **Screen saver timeout**,  il faut cocher le **Enable** pour l'activer puis entrer le temps avant que l'écran se mette en veille, par exemple dans notre cas on a mis 600 seconde (10 minutes) puis on enregistre les modifications.
 - Fermer la fenetre **Group Policy Management Editor** et faite click droit sur le dossier PgUsers et selectionner **Link an Existing GPO**
 - Sur la fenetre **Select GPO**, selectionner le GPO qu'on veut enregistrer: **User-Configuration-Power**
-- Votre GPO de verrouillage automatique des sessions est fait
 
 ### 4. Déploiement (publication) de logiciels
 ### 5. Redirection de dossiers (Documents, Bureau, etc.)
