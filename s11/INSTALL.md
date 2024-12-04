@@ -47,7 +47,11 @@
 - **Chemin** : Computer Configuration > Policies > Administrative Templates > Control Panel.
 - **Prohibit access to the Control Panel and PC settings** : Activez cette option pour interdire l'accès complet au Panneau de configuration et aux paramètres PC.
 
-6. Restriction des périphériques amovible
+### 6. Restriction des périphériques amovible
+- Créez une GPO nommée : `computer-security-block-usb`.
+- Modifiez la **Group Policy Management Editor** :  
+  - **Chemin** : Computer Configuration > Policies > Administrative Template > System > Removable Storage Access > All Removable Storage classes: Deny all access.  
+  - Mettre en **Enable**  
 7. Gestion d'un compte du domaine qui est administrateur local des machines
 8. Gestion du pare-feu
 9. Écran de veille avec mot de passe en sortie
