@@ -35,14 +35,15 @@ Il faudra selectionner 3 éléments:
 - Screen saver timeout  
 ![SST](../Ressources/screen_saver_timeout.png)  
 Pour le **Enable screen saver** et **Password protect the screen saver**, il faut cocher le **Enable** pour l'activer puis enregistrer les modifications.  
-![](../Ressources/enable_screen_saver.png)  
-![](../Ressources/password_protect_the_screen_saver.png)  
+![](../Ressources/enable_screen_saver_c.png)  
+![](../Ressources/password_protect_the_screen_saver_c.png)  
 Et pour le **Screen saver timeout**,  il faut cocher le **Enable** pour l'activer puis entrer le temps avant que l'écran se mette en veille, par exemple dans notre cas on a mis 600 seconde (10 minutes) puis on enregistre les modifications.
-![](../Ressources/screen_saver_timeout.png)  
+![](../Ressources/screen_saver_timeout_c.png)  
 Fermer la fenetre **Group Policy Management Editor** et faite click droit sur le dossier PgUsers et selectionner **Link an Existing GPO**
-![](../Ressources/)  
+![](../Ressources/link_gpo.png)  
 Sur la fenetre **Select GPO**, selectionner le GPO qu'on veut enregistrer: **User-Configuration-Power**
-![](../Ressources/)  
+![](../Ressources/select_gpo.png)
+Votre GPO de verrouillage automatique des sessions est fait
 
 4. Déploiement (publication) de logiciels
 5. Redirection de dossiers (Documents, Bureau, etc.)
