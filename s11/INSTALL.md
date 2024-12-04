@@ -1,8 +1,24 @@
 # Mise en place des GPO
 ## GPO sécurité
-1. Politique de mot de passe
+### 1. **Politique de mot de passe**  
+  - Créez une GPO nommée : `computer-security-passwordPolicies-enable-v1`.
+  - Modifiez la **Default Domain Policy** :
+    - **Chemin** : Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Password Policy.
+    - **Paramètres à configurer** :
+      1. **Minimum password length** : 12
+      2. **Password must meet complexity requirements** : Activez cette option.
+      3. **Enforce password history** :
+         - Activez cette option.
+         - Spécifiez "**24**" le nombre de mots de passe précédents qu’un utilisateur ne pourra pas réutiliser.
+      4. **Minimum password age** :
+         - Activez cette option.
+         - Spécifiez "**1**" le nombre de jours avant qu'un mot de passe puisse être modifié à nouveau.
+      5. **Maximum password age** :
+         - Activez cette option.
+         - Définissez "**30**"le nombre de jours après lesquels un mot de passe expirera.
+
 2. Verrouillage de compte
-3. Verrouillage de compte
+3. Restriction d'installation de logiciel pour les utilisateurs non-administrateurs
 4. Blocage de l'accès à la base de registre
 5. Blocage complet ou partiel au panneau de configuration
 6. Restriction des périphériques amovible
