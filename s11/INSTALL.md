@@ -18,4 +18,5 @@
 4. Déploiement (publication) de logiciels
 5. Redirection de dossiers (Documents, Bureau, etc.)
 6. Configuration des paramètres du navigateur (Firefox ou Chrome)
+# Installation de Glpi
 # Configuration DHCP
