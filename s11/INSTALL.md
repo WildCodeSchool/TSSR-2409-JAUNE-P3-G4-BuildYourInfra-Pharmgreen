@@ -56,13 +56,17 @@
 8. Gestion du pare-feu
 9. Écran de veille avec mot de passe en sortie
 10. Limitation des tentatives d'élévation de privilèges
-11. Politique de sécurité PowerShell
-6. Restriction des périphériques amovible
-7. Gestion d'un compte du domaine qui est administrateur local des machines
-8. Gestion du pare-feu
-9. Écran de veille avec mot de passe en sortie
-10. Limitation des tentatives d'élévation de privilèges
-11. Politique de sécurité PowerShell
+### 11. Politique de sécurité PowerShell
+- Créez une GPO nommée : `computer-security-block-command`.
+- Modifiez la **Group Policy Management Editor** :  
+  - **Chemin** : User Configuration > Policies > Administrative Template > System > Prevent access to the command prompt.  
+  - Mettre en **Enable**
+  - **Chemin** : User Configuration > Policies > Administrative Template > System > Don't run specified Windows applications.  
+  - Mettre en **Enable**
+  - Aller dans **Show** et compléter ces lignes:
+    - **powershell.exe**
+    - **powershell_ise.exe**
+    - **pwsh.exe**
 ## GPO standard
 ### 1. Fond d'écran
 
