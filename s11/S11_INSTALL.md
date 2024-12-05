@@ -1,7 +1,6 @@
 # Mise en place des GPO
 ## GPO sécurité
 ### 1. **Politique de mot de passe**  
-- Créez une GPO nommée : `computer-security-passwordPolicies-enable-v1`.
 - Modifiez la **Default Domain Policy** :
 - **Chemin** : Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Password Policy.
 - **Paramètres à configurer** :
@@ -18,7 +17,6 @@
      - Définissez "**30**"le nombre de jours après lesquels un mot de passe expirera.
 
 ### 2. **Verrouillage de compte**  
-- Créez une GPO nommée : `computer-security-accountLockout-enable-v1`.  
 - Modifiez la **Default Domain Policy** :  
 - **Chemin** : Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Account Lockout Policy.  
 - **Paramètres à configurer** :  
