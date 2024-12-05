@@ -52,10 +52,57 @@
 - Modifiez la **Group Policy Management Editor** :  
   - **Chemin** : Computer Configuration > Policies > Administrative Template > System > Removable Storage Access > All Removable Storage classes: Deny all access.  
   - Mettre en **Enable**  
-7. Gestion d'un compte du domaine qui est administrateur local des machines
-8. Gestion du pare-feu
+### 7. Gestion d'un compte du domaine qui est administrateur local des machines
+- Il est question de définir un ou plusieurs comptes qui seront Administrateurs locaux sur les machines du domaines
+- Création du groupe de sécurité dans l'Active Directory (AD) :
+	- Aller sur un serveur AD > Server Manager > Tools > Active Directory Users and Computers > PgSecurityGroups > Créer un nouveau groupe ;
+	- Donner le nom souhaité au groupe ;
+	- Group Scope = Global ;
+	- Group Type = Security ;
+	- Ajouter le ou les comptes souhaités pour devenir administrateurs locaux dedans ;
+- Création de la GPO :
+	- Server Manager > Tools > Group Policy Management ;
+	- Dans votre domaine > Group Policy Objects > Créer une nouvelle GPO et la nommer selon votre convention ;
+	- Editer la GPO > Computer Configuration > Policies > Windows Settings > Security  Settings > Restricted Groups > Clic Droit > Add Group ;
+	- Ajouter le groupe `Administrators`. Il s'agit du groupe des administrateurs locaux des machines (les clients Windows 10 étant configurés en anglais, il s'agit du nom en anglais, à modifier s'il s'agit de clients français) ;
+	- Double clic sur le groupe nouvellement créé > Members of this group > Add > Ajouter le groupe créé dans l'AD
+	- Sortir de l'éditeur ;
+- Lier la GPO :
+	- Group Policy Management > Group Policy Objects > Sélectionner la GPO
+	- Scope :
+		- Security Filtering : Authenticated Users ;
+	- Details : GPO Status - `User Configuration settings disabled`, puisqu'il s'agit d'une configuration ordinateur ;
+	- Sélectionner l'OU à laquelle vous souhaitez lier la GPO (pour nous `PgComputers`) > Clic droit > Link to an existing GPO > choisir la GPO.
+
+### 8. Gestion du pare-feu
+- Création de la GPO :
+	- Server Manager > Tools > Group Policy Management ;
+	- Dans votre domaine > Group Policy Objects > Créer une nouvelle GPO et la nommer selon votre convention ;
+	- Editer la GPO > Computer Configuration > Policies > Administrative Templates > Network > Network Connections > Windows Defender Firewall > Domain Profile
+	- Protect all network connections : `Disabled`
+	- Sortir de l'éditeur ;
+- Lier la GPO :
+	- Group Policy Management > Group Policy Objects > Sélectionner la GPO
+	- Scope :
+		- Security Filtering : `Authenticated Users` ;
+	- Details : GPO Status - `User Configuration settings disabled`, puisqu'il s'agit d'une configuration ordinateur ;
+	- Sélectionner l'OU à laquelle vous souhaitez lier la GPO (pour nous `PgComputers`) > Clic droit > Link to an existing GPO > choisir la GPO.
+
 9. Écran de veille avec mot de passe en sortie
-10. Limitation des tentatives d'élévation de privilèges
+### 10. Limitation des tentatives d'élévation de privilèges
+- Création de la GPO :
+	- Server Manager > Tools > Group Policy Management ;
+	- Dans votre domaine > Group Policy Objects > Créer une nouvelle GPO et la nommer selon votre convention ;
+	- Editer la GPO > Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > Security Options
+	- User Account Control : Behavior of the elevation prompt for standard users : `Automatically Deny elevation requests`
+	- Sortir de l'éditeur ;
+- Lier la GPO :
+	- Group Policy Management > Group Policy Objects > Sélectionner la GPO
+	- Scope :
+		- Security Filtering : `Authenticated Users` ;
+	- Details : GPO Status - `User Configuration settings disabled`, puisqu'il s'agit d'une configuration ordinateur ;
+	- Sélectionner l'OU à laquelle vous souhaitez lier la GPO (pour nous `PgComputers`) > Clic droit > Link to an existing GPO > choisir la GPO.
+    
 ### 11. Politique de sécurité PowerShell
 - Créez une GPO nommée : `computer-security-block-command`.
 - Modifiez la **Group Policy Management Editor** :  
@@ -67,6 +114,7 @@
     - **powershell.exe**
     - **powershell_ise.exe**
     - **pwsh.exe**
+
 ## GPO standard
 ### 1. Fond d'écran
 - Crée un dossier nommé : `Wallpaper` et ajouter une image pour le fond d'écran
