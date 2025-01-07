@@ -138,3 +138,35 @@ powercfg.exe /hibernate off
 ---
 
 # Installation SRVDHCP - Serveur Windows Server 2022 Core avec le rôle DHCP
+- Cloner un template de VM Windows Server 2022 Core
+## Paramétrage général de la VM
+- Depuis la SConfig > `2) Computer name` > Renommer la machine `SRVDHCP`
+- Depuis la SConfig > `15) Exit to command line (Powershell)`
+``` Powershell
+# Ajout de l'adresse IP - le CIDR est en /16 en l'absence de routeur pour atteindre la passerelle par défaut
+New-NetIPAddress -IPAddress 10.15.200.10 -PrefixLength 16 -InterfaceIndex (Get-NetAdapter).ifIndex -DefaultGateway 10.15.255.254
+
+# Ajout de l'adresse du serveur DNS
+Set-DnsClientServerAddress -InterfaceIndex (Get-NetAdapter).ifIndex -ServerAddresses ("10.15.200.1")
+```
+- Ajout du serveur au domaine pharmgreen.lan :
+	-  Depuis la SConfig > `1) Domain/workgroup`
+``` Powershell
+D				# Pour entrer dans un domaine
+pharmgreen.lan			# Entrer le nom du domaine à rejoindre
+pharmgreen.lan\Administrator	# Entrer un compte du domaine autorisé à nous y ajouter
+```
+- Rentrer le mot de passe administrateur, la machine rejoint le domaine et redémarrer la machine.
+
+
+## Installation du service DHCP
+- Depuis la SConfig > `15) Exit to command line (Powershell)`
+- Entrer les lignes de code suivantes :
+``` Powershell
+	Install-WindowsFeature DHCP -IncludeManagementTools
+	Add-DhcpServerInDC -DnsName srvdhcp.pharmgreen.lan -IPAddress 10.15.200.10
+	Get-DhcpServerInDC	# pour vérifier que notre serveur apparaît bien comme Serveur DHCP du domaine
+```
+- Sur le serveur SRVAD1, en GUI
+  - `Server Manager` > `Manage` > `Add Server`
+  - "Servers that are in the current domain" > Ajouter `SRVDHCP`
