@@ -86,7 +86,6 @@
 	- Details : GPO Status - `User Configuration settings disabled`, puisqu'il s'agit d'une configuration ordinateur ;
 	- Sélectionner l'OU à laquelle vous souhaitez lier la GPO (pour nous `PgComputers`) > Clic droit > Link to an existing GPO > choisir la GPO.
 
-9. Écran de veille avec mot de passe en sortie
 ### 10. Limitation des tentatives d'élévation de privilèges
 - Création de la GPO :
 	- Server Manager > Tools > Group Policy Management ;
@@ -120,7 +119,6 @@
 - Créez une GPO nommée : `User-Configuration-Wallpaper-Default-v1`.
     - **Chemin** : User Configuration > Policies > Administrative Template > Desktop > Desktop > Desktop Wallpaper.
     - Mettre en **Enable** et metter le lien de l'image du dossier Wallpaper
-### 2. Mappage de lecteurs
 
 ### 3. Gestion de l'alimentation
 #### verrouillage automatique des sessions
@@ -135,9 +133,6 @@
 - Fermer la fenetre **Group Policy Management Editor** et faite click droit sur le dossier PgUsers et selectionner **Link an Existing GPO**
 - Sur la fenetre **Select GPO**, selectionner le GPO qu'on veut enregistrer: **User-Configuration-Power**
 
-### 4. Déploiement (publication) de logiciels
-### 5. Redirection de dossiers (Documents, Bureau, etc.)
-### 6. Configuration des paramètres du navigateur (Firefox ou Chrome)
 
 # Installation de Glpi
 ## 1. Sur le serveur GLPI
