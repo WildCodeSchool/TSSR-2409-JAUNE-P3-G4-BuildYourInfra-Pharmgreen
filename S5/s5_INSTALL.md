@@ -75,11 +75,44 @@ ___
 RAID 1	100 %	
 1. Faire le bon choix des données à sauvegarder (ex.: dossiers partagés des utilisateurs)	100 %	
 2. Emplacement de la sauvegarde sur un disque différents de celui des données d'origine	100 %	
-3. Mettre en place une planification de sauvegarde (script, AT, GPO, logiciel, etc.)	100 %	
+3. Mettre en place une planification de sauvegarde (script, AT, GPO, logiciel, etc.)	100 %
+
+___
 # Déplacement automatique des ordinateurs dans les bonnes OU
-1. Suivant le nom d'une machine et/ou la valeur d'un attribut AD
-2. Automatisation par script PS exécuté par une tâches AT
-SÉCURITÉ D'ACCÈS - Restriction d'utilisation
-1. Pour les utilisateurs standard : connexion autorisée de 8h à 18h, du lundi au vendredi sur les clients (bloquée le reste du temps)
-2. Pour les administrateurs : bypass
-3. Gestion des exceptions : prévoir un groupe bypass
+- Le déplacement des ordinateurs dans les bonnes OU est géré par script Powershell, disponible sur ce GitHub dans `Ressources\S5\PC_DeplacementOU_auto.ps1`
+- Le script se base sur un fichier .CSV, disponible dans `Ressources\S5\PC_DeplacementOU.csv`, modifié à partir du fichier du personnel délivré par le service RH ;
+  - le fichier .CSV ne contient que les départements des PCs ainsi que leur identifiant ;
+- Le script, ensuite, récupère la liste de tous les ordinateurs du domaine ;
+- Ensuite, via une structure itérative `Foreach`, il va traiter pour chaque PC du fichier .CSV :
+  - Leur nom, concaténé à partir de leur Département et leur identifiant,
+  - Leur département lui-même,
+  - Leur emplacement actuel (généralement le conteneur `Computers`
+  - Puis définir le nouvel emplacement dans l'AD vers lequel les envoyer ;
+  - Si l'ordinateur est trouvé parmi les ordinateurs du domaine, il le redirige vers l'OU spécifiée précédemment (correspondant à son département) ;
+  - S'il n'existe pas, il n'agit pas sur l'AD et nous prévient par message que l'ordinateur n'existe pas ;
+- Ainsi, chaque ordinateur du domaine, quel que soit son emplacement d'origine, est redirigé vers l'OU auquel il appartient désormais selon le fichier de la RH.
+
+
+# SÉCURITÉ D'ACCÈS - Restriction d'utilisation
+- La gestion des heures travaillées des personnels de l'entreprise a été effectuée par script Powershell, disponible sur ce GitHub dans `Ressources\S5\HOURS_Set-Semaine.ps1`
+- Le script commence par définir une longue fonction de modification des heures de travail :
+  - Paramètres :
+    - Plage horaire de travail ;
+    - Autorisation d'utilisation des pipelines ;
+    - Définition des *WorkingDays* et des *NonWorkingDays*
+  - Process :
+    - Traduction des horaires au format 24h en format binaire ;
+    - Définition des horaires de travail pour les *WorkingDays* (24h/24) et des *NonWorkingDays* (0h/24)
+    - Récupération des données des paramètres de jours ;
+    - Uniformisation des Time zones ;
+    - Modification des horaires pour l'utilisateur en cours d'observation ;
+- Il faut ensuite définir les conditions d'appel de cette fonction :
+  - `Get-ADUser -SearchBase "OU=PgUsers,DC=pharmgreen,DC=lan" -Filter * | Set-LogonHours -TimeIn24Format @(8,9,10,11,12,13,14,15,16,17) -Monday -Tuesday -Wednesday -Thursday -Friday -NonSelectedDaysare NonWorkingDays`
+    - `Get-ADUser -SearchBase "OU=PgUsers,DC=pharmgreen,DC=lan" -Filter *` : Récupération de tous les utilisateurs de l'OU `PgUsers` ;
+    - `Set-LogonHours` : Appel de la fonction précédemment rédigée ;
+    - `-TimeIn24Format @(8,9,10,11,12,13,14,15,16,17)` : Définition des heures de travail de 8h à 18h (heures commencées à 8h, à 9h, ... , à 17h) ;
+    - `-Monday -Tuesday -Wednesday -Thursday -Friday` : S'applique à tous les jours spécifiés
+    - `-NonSelectedDaysare NonWorkingDays` : Les jours non spécifiés sont à considérer comme *NonWorkingDays* (0h/24)
+  - A partir de là, tous nos utilisateurs ont des horaires de travail établis du lundi au vendredi, de 8h à 18h ;
+  - Cependant, les membres du groupe et les administrateurs peuvent avoir besoin de se connecter en dehors de ces heures là.
+  - Une autre ligne, similaire à la précédente, est alors rédigée. Elle précise que les membres de l'OU où se situent les administrateurs sont considérés en heures de travail 24h/24, 7j/7.
