@@ -9,11 +9,31 @@ Chaque utilisateur a accès à :
 Dossier individuel, sur I:, accessible uniquement par cet utilisateur	100 %	
 Dossier de service, sur J:, accessible par tous les utilisateurs d'un même service.	100 %	
 Dossier de département, sur K:, accessible par tous les utilisateurs d'un même département.	100 %	
-# SAUVEGARDE - Mettre en place une sauvegarde de données	100 %	
-RAID 1	100 %	
-1. Faire le bon choix des données à sauvegarder (ex.: dossiers partagés des utilisateurs)	100 %	
-2. Emplacement de la sauvegarde sur un disque différents de celui des données d'origine	100 %	
-3. Mettre en place une planification de sauvegarde (script, AT, GPO, logiciel, etc.)	100 %	
+# SAUVEGARDE - Mettre en place une sauvegarde de données
+- **Objectif** : Garantir une sauvegarde régulière et fiable des données critiques tout en optimisant le temps et l’espace nécessaires pour les sauvegardes quotidiennes.
+
+## 1. Choix des données à sauvegarder
+- **Infrastructure mise en place** :
+  - Création d’un serveur de sauvegarde dédié sous **Windows Server 2022**.
+  - Configuration d’un système de stockage en **RAID 1** pour une meilleure sécurité des données.
+  - Le dossier contenant les sauvegardes complètes et différentielles est compressé afin d'optimiser l'espace du disque.
+
+- **Données à sauvegarder** :
+  - Dossier partagé contenant :
+    - Les dossiers personnels des utilisateurs.
+    - Les dossiers départementaux et de service situés sur le serveur de production.
+
+## 2. Mettre en place une planification de sauvegarde
+- **Outil utilisé** : Nous avons opté pour **Robocopy** pour exécuter les sauvegardes.
+
+- **Planification des sauvegardes** :
+  - **Sauvegarde complète** :
+    - Programmée tous les **samedis à 23h**.
+    - Exécutée via un **script automatisé** grâce au planificateur de tâches.
+  - **Sauvegarde différentielle** :
+    - Programmée **tous les jours à 23h (sauf le samedi)**.
+    - Basée sur la date de la dernière sauvegarde complète.
+
 # Déplacement automatique des ordinateurs dans les bonnes OU
 1. Suivant le nom d'une machine et/ou la valeur d'un attribut AD
 2. Automatisation par script PS exécuté par une tâches AT
