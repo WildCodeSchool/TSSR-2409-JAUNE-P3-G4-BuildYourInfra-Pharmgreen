@@ -93,6 +93,7 @@ ___
 - Ainsi, chaque ordinateur du domaine, quel que soit son emplacement d'origine, est redirigé vers l'OU auquel il appartient désormais selon le fichier de la RH.
 
 
+___
 # SÉCURITÉ D'ACCÈS - Restriction d'utilisation
 - La gestion des heures travaillées des personnels de l'entreprise a été effectuée par script Powershell, disponible sur ce GitHub dans `Ressources\S5\HOURS_Set-Semaine.ps1`
 - Le script commence par définir une longue fonction de modification des heures de travail :
