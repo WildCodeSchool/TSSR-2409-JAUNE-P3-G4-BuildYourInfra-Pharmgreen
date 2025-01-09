@@ -134,6 +134,7 @@
 - Sur la fenetre **Select GPO**, selectionner le GPO qu'on veut enregistrer: **User-Configuration-Power**
 
 
+___
 # Installation de Glpi
 ## 1. Sur le serveur GLPI
 ```Bash
@@ -233,6 +234,7 @@ Pour le SETUP :
 Choisir la base de données créer : `glpidb`
 
 
+___
 # Configuration DHCP
 Nous avons configuré le DHCP pour qu'il attribue sur chaque sous-réseau 100 IP sur la plage **adresse_réseau.100 > adresse_réseau.200**
 Notre serveur DHCP est en core, nous l'avons configuré depuis le serveur graphique après avoir installé **RSAT-DHCP** via la commande suivante :
