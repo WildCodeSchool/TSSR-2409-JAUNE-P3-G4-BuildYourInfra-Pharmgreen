@@ -37,9 +37,38 @@
 - Ainsi, chaque utilisateur aura accès à son répertoire individuel, mappé sur I:, nommé selon son identifiant de connexion.
  
 ### 2. Dossier de service, sur J:, accessible par tous les utilisateurs d'un même service
+- Le mappage des dossiers de service a été effectué par GPO ;
+- Ces GPO ont été créées via script Powershell, disponible sur ce GitHub dans `Ressources\S5\GPO-MappingServices-Crea.ps1`
+  - Ce script se base sur un fichier CSV dans lequel sont respectivement listés, pour chaque service, le nom que nous donnerons à la GPO, l'emplacement où cette GPO devra être liée et le groupe d'utilisateurs auquel elle s'appliquera ;
+  - Ensuite, pour chaque service, une structure itérative `Foreach` permet de créer une GPO, dont le nom est standardisé, liée à l'OU de notre choix et s'appliquant au groupe concerné.
+- Un second script permet ensuite d'ajouter `Domain Computers` et de retirer `Authenticated Users` aux `Security Filtering` ainsi que d'appliquer le statut `Computer Settings Disabled` à chacune des GPO de mappage ;
+- Enfin, et c'est un point que nous n'avons pas réussi à automatiser, pour chaque GPO on la paramètre comme suit :
+  - Chemin : `User Configuration` > `Preferences` > `Windows Settings` > `Drive Maps` > Clic Droit > `New Mapped Drive`
+  - Paramètres à configurer :
+    - Action : `Update`
+    - Location : `"\\srvprod\pharmgreen\<Répertoire Département>\<Répertoire Service>`
+    - Reconnect : Yes
+    - Label as : `<Nom du Service>`
+    - Drive Letter : `Use: J`
+    - Hide/Show this drive : `Show this drive`
+- Ainsi, chaque utilisateur aura accès au répertoire de son service, mappé sur J:, nommé selon son service.
 
 ### 3. Dossier de département, sur K:, accessible par tous les utilisateurs d'un même département
-
+- Le mappage des dossiers de département a été effectué par GPO ;
+- Ces GPO ont été créées manuellement ;
+  - Chemin : `User Configuration` > `Preferences` > `Windows Settings` > `Drive Maps` > Clic Droit > `New Mapped Drive`
+  - Paramètres à configurer :
+    - Action : `Update`
+    - Location : `"\\srvprod\pharmgreen\<Répertoire Département>`
+    - Reconnect : Yes
+    - Label as : `<Nom du Département>`
+    - Drive Letter : `Use: K`
+    - Hide/Show this drive : `Show this drive`
+  - Cette GPO aura pour :
+    - Lien : `<OU Département>`
+    - Security Filtering : `Domain Computers` et `<Groupe des membres du Département>`      # Pour s'appliquer à tous les membres du département sur tous les ordinateurs du domaine
+    - GPO Status : `Computer configuration settings disabled`                               # Puisqu'il s'agit d'une configuration utilisateur
+- Ainsi, chaque utilisateur aura accès au répertoire de son département, mappé sur K:, nommé selon son département.
 
 ___
 # SAUVEGARDE - Mettre en place une sauvegarde de données	100 %	
