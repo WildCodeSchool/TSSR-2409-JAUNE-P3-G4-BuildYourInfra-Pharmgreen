@@ -1,4 +1,4 @@
-# DOSSIERS PARTAGES - Mettre en place des dossiers réseaux pour les utilisateurs	100 %
+# DOSSIERS PARTAGES - Mettre en place des dossiers réseaux pour les utilisateurs
 ## Stockage des données sur un volume spécifique
 - Les données personnelles seront stockées sur le serveur de fichiers `SRVPROD` dans l'arborescence `Pharmgreen\00_Commun\002_Dossiers Individuels\`
   - L'emplacement du répertoire partagé `Pharmgreen` est libre. Sur notre serveur, il a été placé sur le disque de stockage `E:\`, configuré en RAID 1 ;
@@ -71,7 +71,7 @@
 - Ainsi, chaque utilisateur aura accès au répertoire de son département, mappé sur K:, nommé selon son département.
 
 ___
-# SAUVEGARDE - Mettre en place une sauvegarde de données	100 %	
+# SAUVEGARDE - Mettre en place une sauvegarde de données
 RAID 1	100 %	
 1. Faire le bon choix des données à sauvegarder (ex.: dossiers partagés des utilisateurs)	100 %	
 2. Emplacement de la sauvegarde sur un disque différents de celui des données d'origine	100 %	
