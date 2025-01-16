@@ -52,6 +52,31 @@
 - Redémarrez la machine
 - Le serveur de messagerie est prêt à être exploité.
 
+## Déploiement Mozilla Thunderbird sur les postes clients par GPO
+### Configurer la GPO
+- Créez une GPO (ex. : `Computer-Install-Mail-Mozilla_Thunderbird-v1.`
+- Faites un clic droit sur la GPO et sélectionnez Edit.
+- Chemin : `Computer Configuration > Policies > Software Settings > Software Installation.`
+- Clic Droit > `New Package` > Sélectionnez le fichier d'installation de Mozilla Thunderbird situé dans un emplacement réseau partagé avec les utilisateurs.
+### Lier la GPO
+Group Policy Management > Group Policy Objects > Sélectionner la GPO
+Sélectionner l'OU à laquelle vous souhaitez lier la GPO (pour nous `Clients`) > Clic droit > Link to an existing GPO > choisir la GPO.
+Scope : `PgComputers` > `Clients` ;
+Security Filtering : `Domain Computers` ;
+Details : GPO Status - `User Configuration settings disabled`, puisqu'il s'agit d'une configuration ordinateur ;
+
+### Paramétrage Mozilla Thunderbird sur poste client :
+- Ouvrez Mozilla Thunderbird nouvellement installé ;
+- Rentrez votre adresse mail entreprise ainsi que votre mot de passe ;
+- Dans le paramétrage avancé :
+  - Serveur entrant: `iredmail.pharmgreen.lan (IMAP)`
+  - Port: `143`
+  - Serveur sortant (SMTP): `iredmail.pharmgreen.lan`
+  - Port: `587`
+  - Nom d'utilisateur: Adresse email complète.
+  - Authentification: `Autodétection`
+  - Sécurité de la connexion: `STARTTLS`.
+
 ___
 # Mettre en place un serveur de gestion de mot de passe
 Bitwarden ou Passbolt
