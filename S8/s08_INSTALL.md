@@ -205,4 +205,5 @@ systemctl restart systemd-timesyncd.service
 1. Accéder à Passbolt via votre navigateur à l’adresse :  
    `http://10.15.190.2`
 2. Lors de la première connexion, un compte administrateur vous sera demandé. Suivez les étapes.
-   
+   ![screenshot](../Ressources/S8/capture(10).png)
+   ![screenshot](../Ressources/S8/capture(11).png)  
