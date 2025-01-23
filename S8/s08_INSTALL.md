@@ -189,7 +189,9 @@ systemctl restart systemd-timesyncd.service
 
 
 ### 5. Configuration de la base de données
-1. **image**
+**image**
+![1ère image](../Ressources/S8/capture(1))
+
 
 ### 6. Finalisation et test
 1. Accéder à Passbolt via votre navigateur à l’adresse :  
