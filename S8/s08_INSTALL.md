@@ -133,3 +133,65 @@ RID pool manager         SRVAD4.pharmgreen.lan
 Infrastructure master    SRVAD5.pharmgreen.lan
 The command completed successfully.
 ```
+---
+# Installation de Passbolt
+## Prérequis
+- **Système d'exploitation** : Debian (sur une VM Proxmox).
+- **Réseau** :
+  - Nom de domaine : `pharmgreen.lan`
+  - Adresse IP statique : `10.15.190.2/24`
+- **Compte** : Root
+
+## Étapes d'installation
+### 1. Paramétrer le NTP
+```bash
+timedatectl set-timezone Europe/Paris
+nano /etc/systemd/timesyncd.conf
+```
+```
+NTP=fr.pool.ntp.org
+```
+```bash
+timedatectl set-ntp true
+systemctl restart systemd-timesyncd.service
+```
+
+### 2. Préparation du serveur
+1. Mettre à jour le système :
+   ```bash
+   apt update && apt upgrade -y
+   ```
+2. Installer curl :
+   ```bash
+   apt install -y curl
+   ```
+
+### 3. Installation des dépendances
+1. Télécharger le script :
+   ```bash
+   curl -LO https://download.passbolt.com/ce/installer/passbolt-repo-setup.ce.sh
+   ```
+2. lancer le script :
+   ```bash
+   bash ./passbolt-repo-setup.ce.sh
+   ```
+3. Mettre à jour la liste des paquets :
+   ```bash
+   apt update
+   ```
+
+### 4. Installation de Passbolt
+1. Installer Passbolt CE et ses dépendances :
+   ```bash
+   apt install -y passbolt-ce-server
+   ```
+   Vous arriverez dans une fenetre de configuration, suivez les captures d'écran pour la suite.
+
+
+### 5. Configuration de la base de données
+1. **image**
+
+### 6. Finalisation et test
+1. Accéder à Passbolt via votre navigateur à l’adresse :  
+   `http://10.15.190.2` ou `http://pharmgreen.lan`.
+2. Lors de la première connexion, un compte administrateur vous sera demandé. Suivez les étapes pour configurer cet utilisateur.
