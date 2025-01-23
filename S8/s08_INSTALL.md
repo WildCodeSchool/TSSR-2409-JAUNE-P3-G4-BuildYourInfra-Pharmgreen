@@ -190,7 +190,7 @@ systemctl restart systemd-timesyncd.service
 
 ### 5. Configuration de la base de données
 **image**
-![1ère image](../Ressources/S8/capture(1))
+![1ère image](../Ressources/S8/capture(1).png)
 
 
 ### 6. Finalisation et test
