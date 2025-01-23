@@ -193,5 +193,5 @@ systemctl restart systemd-timesyncd.service
 
 ### 6. Finalisation et test
 1. Accéder à Passbolt via votre navigateur à l’adresse :  
-   `http://10.15.190.2` ou `http://pharmgreen.lan`.
+   `http://10.15.190.2`
 2. Lors de la première connexion, un compte administrateur vous sera demandé. Suivez les étapes pour configurer cet utilisateur.
