@@ -189,11 +189,20 @@ systemctl restart systemd-timesyncd.service
 
 
 ### 5. Configuration de la base de données
-**image**
-![1ère image](../Ressources/S8/capture(1).png)
+![screenshot](../Ressources/S8/capture(1).png)  
+![screenshot](../Ressources/S8/capture(2).png)  
+- Pas de mot de passe
+![screenshot](../Ressources/S8/capture(3).png)  
+![screenshot](../Ressources/S8/capture(4).png)  
+- Entrer le mot de passe et répéter  
+![screenshot](../Ressources/S8/capture(5).png)  
+![screenshot](../Ressources/S8/capture(6).png)  
+![screenshot](../Ressources/S8/capture(7).png)  
+![screenshot](../Ressources/S8/capture(8).png)  
+![screenshot](../Ressources/S8/capture(9).png)  
 
-
-### 6. Finalisation et test
+### 6. Finalisation
 1. Accéder à Passbolt via votre navigateur à l’adresse :  
    `http://10.15.190.2`
-2. Lors de la première connexion, un compte administrateur vous sera demandé. Suivez les étapes pour configurer cet utilisateur.
+2. Lors de la première connexion, un compte administrateur vous sera demandé. Suivez les étapes.
+   
