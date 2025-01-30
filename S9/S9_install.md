@@ -87,7 +87,7 @@ Connecte-toi en root via la console web, et vas dans le Dashboard pour voir s'il
 - DNS : Ici tu peux mettre les adresses IP des autres serveurs DNS de ton réseau
 - Time Zone : Pour le fuseau horaire
 
-## Ajout des utilisateurs Active Directory
+### Ajout des utilisateurs Active Directory
 - Sur la console web : `Administrator` > `User Manager` > `Directories` > `Add`
     - Directory Type : `Microsoft Active Directory`
     - Directory Name : `Pharmgreen`
@@ -103,5 +103,4 @@ Connecte-toi en root via la console web, et vas dans le Dashboard pour voir s'il
  
 - Afin que les utilisateurs puissent avoir un numéro VOIP, celui-ci doit être renseigné sur leur profil : `Telephones` > `IP Phone`
 
-___
-# Déploiement et Configuration du Softphone 3CX
+## Déploiement et Configuration du Softphone 3CX
