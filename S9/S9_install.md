@@ -12,7 +12,6 @@
 5. Clique sur ROOT PASSWORD et entre un mot de passe (Le clavier est en anglais donc attention aux lettres des touches du clavier QWERTY).
 6. L'installation continue et se termine.
 7. Éteindre la VM, enlever l'ISO du lecteur et redémarrer la VM.
-
 ## Configuration du serveur 
 ### Sur le serveur FreePBX
 1. Connecte toi en root.
