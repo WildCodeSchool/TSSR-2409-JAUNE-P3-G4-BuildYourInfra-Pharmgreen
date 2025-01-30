@@ -76,7 +76,3 @@ Details : GPO Status - `User Configuration settings disabled`, puisqu'il s'agit 
   - Nom d'utilisateur: Adresse email complète.
   - Authentification: `Autodétection`
   - Sécurité de la connexion: `STARTTLS`.
-
-___
-# Mettre en place un serveur de gestion de mot de passe
-Bitwarden ou Passbolt
