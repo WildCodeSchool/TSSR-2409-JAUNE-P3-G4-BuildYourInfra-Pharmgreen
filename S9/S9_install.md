@@ -102,4 +102,15 @@ Connecte-toi en root via la console web, et vas dans le Dashboard pour voir s'il
  
 - Afin que les utilisateurs puissent avoir un numéro VOIP, celui-ci doit être renseigné sur leur profil : `Telephones` > `IP Phone`
 
-## Déploiement et Configuration du Softphone 3CX
+# Mettre en place une relation d'approbation entre 2 domaines :
+## Configurer le DNS
+1. Dans `DNS Manager` clic droit sur `Conditionnal forwarder` > `New Conditionnal forwarder`
+2. Entrez le nom du domaine a ajouter (eko.lan) et l'IP du DNS du domaine :
+![screenshot](../Ressources/S9/Capture(2).png)
+## Faire le lien d'approbation
+4. Aller dans la console `Active Directory domains and trusts`, clic droit sur `pharmgreen.lan` > `properties`. Dans l'onglets `trust` cliquer sur `new trust`
+5. Entrez le nom du domaine a relier et choisir les informations appropriés :
+![screenshot](../Ressources/S9/Capture(6).png)  
+![screenshot](../Ressources/S9/Capture(3).png)  
+![screenshot](../Ressources/S9/Capture(1).png)  
+![screenshot](../Ressources/S9/Capture(5).png)  
