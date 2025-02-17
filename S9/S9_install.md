@@ -12,10 +12,9 @@
 5. Clique sur ROOT PASSWORD et entre un mot de passe (Le clavier est en anglais donc attention aux lettres des touches du clavier QWERTY).
 6. L'installation continue et se termine.
 7. Éteindre la VM, enlever l'ISO du lecteur et redémarrer la VM.
-
-## Configuration du serveur 
+## Configuration du serveur
 ### Sur le serveur FreePBX
-1. Connecte toi en root.
+1. Connecte toi en root.  
 2. Ecrit les lignes de commandes suivantes pour mettre le clavier en français :
 ```bash
 localectl set-locale LANG=fr_FR.utf8
@@ -102,5 +101,26 @@ Connecte-toi en root via la console web, et vas dans le Dashboard pour voir s'il
     - **Laisser les autres champs par défaut**
  
 - Afin que les utilisateurs puissent avoir un numéro VOIP, celui-ci doit être renseigné sur leur profil : `Telephones` > `IP Phone`
-
-## Déploiement et Configuration du Softphone 3CX
+---
+# Mettre en place une relation d'approbation entre 2 domaines :
+## Configurer le DNS
+1. Dans `DNS Manager` clic droit sur `Conditionnal forwarder` > `New Conditionnal forwarder`
+![screenshot](../Ressources/S9/Capture(7).png)  
+3. Entrez le nom du domaine a ajouter (eko.lan) et l'IP du DNS du domaine :  
+![screenshot](../Ressources/S9/Capture(2).png)  
+4. On peut vérifier avec `nslookup` que la résolution de nom fonctionne :  
+![screenshot](../Ressources/S9/Capture(6).png)  
+## Faire le lien d'approbation
+4. Aller dans la console `Active Directory domains and trusts`, clic droit sur `pharmgreen.lan` > `properties`. Dans l'onglets `trust` cliquer sur `new trust`  
+   Entrez le nom du domaine a relier `eko.lan`  
+   Choisir `External Trust`. puis `Two-way` et enfin `Both this domain and the specified domain`.  
+   Entrer les coordonnées d'un compte administrateur de `eko.lan`  
+   Selectionner deux fois `Domain-wide authentication`.  
+   Cliquer deux fois sur `Next`.  
+   Selectionner `Yes, confirm the outgoing trust` puis `Yes, confirm the incoming trust`. Cliquer sur `Finish`.  
+![screenshot](../Ressources/S9/Capture(3).png)  
+6. Dans `Group Policies Management` on peut rajouter l'arborescence de `eko.lan` :  
+![screenshot](../Ressources/S9/Capture(1).png)  
+7. On peut aussi accéder à l'arborescence de `eko.lan` dans `Active Directory Users ans Computers`  
+![screenshot](../Ressources/S9/Capture(5).png)  
+---
