@@ -101,6 +101,26 @@ Connecte-toi en root via la console web, et vas dans le Dashboard pour voir s'il
     - **Laisser les autres champs par défaut**
  
 - Afin que les utilisateurs puissent avoir un numéro VOIP, celui-ci doit être renseigné sur leur profil : `Telephones` > `IP Phone`
+
+___
+# Déploiement du softphone 3CX par GPO
+## Télécharger le fichier d'installation
+`https://www.3cx.fr/voip-telephone/softphone/`
+
+## GPO de déploiement
+- Configurer la GPO
+    - Créez une GPO (ex. : Computer-Install-Softphone-3CX-v1.
+    - Faites un clic droit sur la GPO et sélectionnez Edit.
+    - Chemin : Computer Configuration > Policies > Software Settings > Software Installation.
+    - Clic Droit > New Package > Sélectionnez le fichier d'installation de 3CX situé dans un emplacement réseau partagé avec les utilisateurs.
+- Lier la GPO
+    - Sélectionner l'OU à laquelle vous souhaitez lier la GPO (pour nous Clients) > Clic droit > Link to an existing GPO > choisir la GPO.
+    - Group Policy Management > Group Policy Objects > Sélectionner la GPO
+        - Scope : PgComputers > Clients ;
+        - Security Filtering : Domain Computers ;
+        - Details : GPO Status - User Configuration settings disabled, puisqu'il s'agit d'une configuration ordinateur ;
+
+
 ---
 # Mettre en place une relation d'approbation entre 2 domaines :
 ## Configurer le DNS
