@@ -4,17 +4,17 @@
 | 655 | G4-pfsense-P3 | pfsense | VM | FreeBSD | Pare-Feu / VPN | vmbr1 ; vmbr655 ; vmbr670 | 10.0.0.3 /29 10.15.255.254 /16 10.17.255.254 /17 | disk 0 - Total : 10Go ; Libre : 6.6Go (89%) | Total : 2Go ; Utilisée : 0.8Go |
 | 656 | G4-SRVAD1 | SRVAD1 | VM | Windows Server 2022 - Graphique | Active Directory / DNS | vmbr655 | 10.15.200.1 /24 | disk 1 - Total : 32Go ; Libre : 14.6Go (45%) ; disk 3 - Total : 20Go ; Libre : 1.16Go (06%) | Total : 4Go ; Utilisée : 3.3Go |
 | 657 | G4-SRVAD2 | SRVAD2 | VM | Windows Server 2022 - Graphique | Active Directory | vmbr655 | 10.15.200.2 /24 | disk 1 - Total : 32Go ; Libre : 13.7Go (43%) | Total : 4Go ; Utilisée : 2.4Go |
-| 658 | G4-SRVAD3 | SRVAD3 | VM | Windows Server 2022 - Core | Active Directory | vmbr655 | 10.15.200.3 /24 | disk 1 - Total : 32Go ; Libre : Go (%) | Total : 2Go ; Utilisée : 0.8Go |
-| 659 | G4-SRVAD4 | SRVAD4 | VM | Windows Server 2022 - Core | Active Directory | vmbr655 | 10.15.200.4 /24 | disk 1 - Total : 32Go ; Libre : Go (%) | Total : 2Go ; Utilisée : 1Go |
-| 660 | G4-SRVAD5 | SRVAD5 | VM | Windows Server 2022 - Core | Active Directory | vmbr655 | 10.15.200.5 /24 | disk 1 - Total : 32Go ; Libre : Go (%) | Total : 2Go ; Utilisée : 1Go |
-| 662 | G4-SRVDHCP | SRVDHCP | VM | Windows Server 2022 - Core | DHCP | vmbr655 | 10.15.200.10 /24 |-------------------|-----|
-| 663 | G4-SRVGLPI | SRVGLPI | VM | Debian 12.7 | GLPI | vmbr655 | 10.15.200.20 /24 |-------------------|-----|
-| 664 | G4-SRVPROD | SRVPROD | VM | Windows Server 2022 - Graphique | Serveur de fichiers | vmbr655 | 10.15.200.30 /24 |-------------------|-----|
-| 665 | G4-SRVSAVE | SRVSAVE | VM | Windows Server 2022 - Graphique | Serveur de sauvegarde | vmbr655 | 10.15.200.40 /24 |-------------------|-----|
-| 666 | G4-SRVPRTG | SRVPRTG | VM | Windows Server 2022 - Graphique | Supervision | vmbr655 | 10.15.200.50 /24 |-------------------|-----|
-| 667 | G4-SRVWSUS | SRVWSUS | VM | Windows Server 2022 - Graphique | WSUS - Mise à jour | vmbr655 | 10.15.200.60 /24 |-------------------|-----|
-| 668 | G4-SRVVOIP | SRVVOIP | VM | FreePBX | VOIP | vmbr655 | 10.15.200.70 /24 |-------------------|-----|
-| 671 | G4-Routeur-R1 | vyos | VM | Vyos 1.5 | Routage | vmbr655 | 10.15.10.254 /24 10.15.20.254 /24 10.15.30.254 /24 10.15.40.254 /24 10.15.50.254 /24 10.15.60.254 /24 10.15.70.254 /24 10.15.80.254 /24 10.15.90.254 /24 10.15.100.254 /24 10.15.190.254 /24 10.15.200.254 /24 |-------------------|-----|
-| 672 | G4-CLI-ADMIN | CLI-ADMIN | VM | Windows 10 | Poste d'administration | vmbr655 | 10.15.200.245 /24 |-------------------|-----|
-| 673 | G4-CLI-FIN-P0223 | CLI-FIN-P0223 | VM | Windows 10 | Test 1 - VLAN 40 | vmbr655 | 10.15.40.1 /24 |-------------------|-----|
-| 674 | G4-CLI-RD-P0141 | CLI-RD-P0141 | VM | Windows 10 | Test 2 - VLAN 10 | vmbr655 | 10.15.10.1 /24 |-------------------|-----|
+| 658 | G4-SRVAD3 | SRVAD3 | VM | Windows Server 2022 - Core | Active Directory | vmbr655 | 10.15.200.3 /24 | disk 1 - Total : 32Go ; Libre : 17.28Go (54%) | Total : 2Go ; Utilisée : 0.8Go |
+| 659 | G4-SRVAD4 | SRVAD4 | VM | Windows Server 2022 - Core | Active Directory | vmbr655 | 10.15.200.4 /24 | disk 1 - Total : 32Go ; Libre : 19.44Go (61%) | Total : 2Go ; Utilisée : 1Go |
+| 660 | G4-SRVAD5 | SRVAD5 | VM | Windows Server 2022 - Core | Active Directory | vmbr655 | 10.15.200.5 /24 | disk 1 - Total : 32Go ; Libre : 18.28Go (57%) | Total : 2Go ; Utilisée : 1Go |
+| 662 | G4-SRVDHCP | SRVDHCP | VM | Windows Server 2022 - Core | DHCP | vmbr655 | 10.15.200.10 /24 | disk 1 - Total : 32Go ; Libre : 17.27Go (54%) | Total : 2Go ; Utilisée : 1.2Go |
+| 663 | G4-SRVGLPI | SRVGLPI | VM | Debian 12.7 | GLPI | vmbr655 | 10.15.200.20 /24 | sda - Total : 32Go ; Libre 26Go (81%) | Total : 2Go ; Utilisée : 0.8Go |
+| 664 | G4-SRVPROD | SRVPROD | VM | Windows Server 2022 - Graphique | Serveur de fichiers | vmbr655 | 10.15.200.30 /24 | disk 1 - Total : 32Go ; Libre : 14.4Go (45%) ; disk 3 - Total : 3Go ; Libre : 2.8Go (94%) ; disk 5 - Total : 3Go ; Libre : 2.8Go (94%) | Total : 4Go ; Utilisée : 2.4Go |
+| 665 | G4-SRVSAVE | SRVSAVE | VM | Windows Server 2022 - Graphique | Serveur de sauvegarde | vmbr655 | 10.15.200.40 /24 | disk 1 - Total : 32Go ; Libre : 14.9Go (47%) ; disk 3 - Total : 3Go ; Libre : 2.8Go (94%) ; disk 4 - Total : 3Go ; Libre : 2.8Go (94%) | Total : 4Go ; Utilisée : 2.4Go |
+| 666 | G4-SRVPRTG | SRVPRTG | VM | Windows Server 2022 - Graphique | Supervision | vmbr655 | 10.15.200.50 /24 | disk 1 - Total : 32Go ; Libre : 11.3Go (35%) | Total : 4Go ; Utilisée : 2.4Go |
+| 667 | G4-SRVWSUS | SRVWSUS | VM | Windows Server 2022 - Graphique | WSUS - Mise à jour | vmbr655 | 10.15.200.60 /24 | disk 1 - Total : 32Go ; Libre : 14.2Go (44%) ; disk 3 - Total : 20Go ; Libre : 0.01Go (0.05%) | Total : 8Go ; Utilisée : 6.55Go |
+| 668 | G4-SRVVOIP | SRVVOIP | VM | FreePBX | VOIP | vmbr655 | 10.15.200.70 /24 | sda - Total : 20Go ; Libre 8.8Go (57%) | Total : 2Go ; Utilisée : 1.55Go |
+| 671 | G4-Routeur-R1 | vyos | VM | Vyos 1.5 | Routage | vmbr655 | 10.15.10.254 /24 ; 10.15.20.254 /24 ; 10.15.30.254 /24 ; 10.15.40.254 /24 ; 10.15.50.254 /24 ; 10.15.60.254 /24 ; 10.15.70.254 /24 ; 10.15.80.254 /24 ; 10.15.90.254 /24 ; 10.15.100.254 /24 ; 10.15.190.254 /24 ; 10.15.200.254 /24 ; 10.15.255.253 /24 | sda - Total : 4Go ; Libre 1.8Go (45%) | Total : 2Go ; Utilisée : 0.8Go |
+| 672 | G4-CLI-ADMIN | CLI-ADMIN | VM | Windows 10 | Poste d'administration | vmbr655 | 10.15.200.245 /24 | disk 1 - Total : 50Go ; Libre : 22.6Go (45%) | Total : 4Go ; Utilisée : 3.32Go |
+| 673 | G4-CLI-FIN-P0223 | CLI-FIN-P0223 | VM | Windows 10 | Test 1 - VLAN 40 | vmbr655 | 10.15.40.1 /24 | disk 1 - Total : 50Go ; Libre : 18.1Go (36%) | Total : 4Go ; Utilisée : 3.31Go |
+| 674 | G4-CLI-RD-P0141 | CLI-RD-P0141 | VM | Windows 10 | Test 2 - VLAN 10 | vmbr655 | 10.15.10.1 /24 | disk 1 - Total : 50Go ; Libre : 13.2Go (26%) | Total : 4Go ; Utilisée : 3.32Go |
