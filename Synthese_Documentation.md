@@ -9,12 +9,12 @@
 | 660 | G4-SRVAD5 | SRVAD5 | Serveur Active Directory | [Doc AD5 Install](S02/s02_INSTALL.md#installation-srvad3-srvad4-et-srvad5---serveur-windows-server-2022-core-avec-le-rôle-ad-ds) |  |
 | 662 | G4-SRVDHCP | SRVDHCP |  |  |  |
 | 663 | G4-SRVGLPI | SRVGLPI | Machine Virtuel, Base de données GLPI | [Doc GLPI](./S03/s03_INSTALL.md#installation-de-glpi) |  |
-| 664 | G4-SRVPROD | SRVPROD |  |  |  |
-| 665 | G4-SRVSAVE | SRVSAVE |  |  |  |
-| 666 | G4-SRVPRTG | SRVPRTG |  |  |  |
-| 667 | G4-SRVWSUS | SRVWSUS |  |  |  |
-| 668 | G4-SRVVOIP | SRVVOIP |  |  |  |
-| 671 | G4-Routeur-R1 | vyos |  |  |  |
-| 672 | G4-CLI-ADMIN | CLI-ADMIN |  |  |  |
-| 673 | G4-CLI-FIN-P0223 | CLI-FIN-P0223 |  |  |  |
-| 674 | G4-CLI-RD-P0141 | CLI-RD-P0141 |  |  |  |
+| 664 | G4-SRVPROD | SRVPROD | Machine Virtuel, Serveur Windows 22, RAID 1 |  |  |
+| 665 | G4-SRVSAVE | SRVSAVE | Machine Virtuel, Serveur Windows 22, RAID 1, Script Robocopy |  |  |
+| 666 | G4-SRVPRTG | SRVPRTG | Machine Virtuel, Serveur Windows 22 |  |  |
+| 667 | G4-SRVWSUS | SRVWSUS | Machine Virtuel, Serveur Windows 22 |  |  |
+| 668 | G4-SRVVOIP | SRVVOIP | Machine Virtuel, Serveur FreePBX |  |  |
+| 671 | G4-Routeur-R1 | vyos | Machine Virtuel, Routeur VYOS |  |  |
+| 672 | G4-CLI-ADMIN | CLI-ADMIN | Machine Virtuel, Windows 10, RSAT, Putty, RDP | [Doc Install PC Admin](./S10/s10_INSTALL.md) |  |
+| 673 | G4-CLI-FIN-P0223 | CLI-FIN-P0223 | Machine Virtuel, Windows 10, 3CX, Putty |  |  |
+| 674 | G4-CLI-RD-P0141 | CLI-RD-P0141 | Machine Virtuel, Windows 10, 3CX, Putty |  |  |
