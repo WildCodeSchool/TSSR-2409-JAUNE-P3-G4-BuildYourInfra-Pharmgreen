@@ -8,7 +8,7 @@
 | 659 | G4-SRVAD4 | SRVAD4 |  |  |  |
 | 660 | G4-SRVAD5 | SRVAD5 |  |  |  |
 | 662 | G4-SRVDHCP | SRVDHCP |  |  |  |
-| 663 | G4-SRVGLPI | SRVGLPI | Machine Virtuel, Base de données GLPI | [Doc GLPI](https://github.com/WildCodeSchool/TSSR-2409-JAUNE-P3-G4-BuildYourInfra-Pharmgreen/blob/main/S03/s03_INSTALL.md#installation-de-glpi) |  |
+| 663 | G4-SRVGLPI | SRVGLPI | Machine Virtuel, Base de données GLPI | [Doc GLPI](./S03/s03_INSTALL.md#installation-de-glpi) |  |
 | 664 | G4-SRVPROD | SRVPROD |  |  |  |
 | 665 | G4-SRVSAVE | SRVSAVE |  |  |  |
 | 666 | G4-SRVPRTG | SRVPRTG |  |  |  |
