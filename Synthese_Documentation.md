@@ -1,6 +1,6 @@
 | ID du matériel | Nom du matériel - Proxmox | Nom de machine | Matériel, Serveur, Configuration, ... | Statut Documentation d'Installation | Statut Documentation d'Utilisation |
 |----------------|---------------------------|----------------|---------------------------------------|-------------------------------------|------------------------------------|
-| 648 | iredmail | iredmail |  |  |  |
+| 648 | iredmail | iredmail | Conteneur Debian  ; iRedMail | A jour : [DocMessagerieInstall](./S07/s07_Install.md) | A jour : [DocMessagerieUser](./S07/s07_USER_GUIDE.md) |
 | 655 | G4-pfsense-P3 | pfsense |  |  |  |
 | 656 | G4-SRVAD1 | SRVAD1 |  |  |  |
 | 657 | G4-SRVAD2 | SRVAD2 |  |  |  ||
