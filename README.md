@@ -21,8 +21,8 @@ Dans ce contexte, **Matt** et **P.A.** sont les membres du groupe chargés de d�
 ## **Présentation des membres du groupe et rôles par Sprint**
 
 Le groupe est composé de :
-- **P.A.** – Chef de Projet (PO) et Scrum Master (SM) en alternance.
-- **Matt** – Chef de Projet (PO) et Scrum Master (SM) en alternance.
+- **P.A.** – Product Owner (PO) et Scrum Master (SM) en alternance.
+- **Matt** – Product Owner (PO) et Scrum Master (SM) en alternance.
 
 ## **Choix techniques, contraintes et solutions**
 
