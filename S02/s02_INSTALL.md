@@ -7,13 +7,13 @@
 - Choisir d'ajouter une nouvelle forêt : `Add new forest`, que l'on nommera ici `pharmgreen.lan` ;
 - Laisser par la suite tout le reste par défaut et finalisez l'installation (le serveur nécessitera un redémarrage pour cela) ;
 
-# Installation SRVAD2 - Serveur Windows Server 2022 Core avec le rôle AD-DS
+# Installation SRVAD3, SRVAD4 et SRVAD5 - Serveur Windows Server 2022 Core avec le rôle AD-DS
 - Cloner un Template WindowsServer 2022 Core
 - Depuis la SConfig > `2) Computer name` > Renommer la machine `SRVAD2`+
 - Depuis la SConfig > `15) Exit to command line (Powershell)`
 ``` Powershell
 # Ajout de l'adresse IP - le CIDR est en /16 en l'absence de routeur pour atteindre la passerelle par défaut
-New-NetIPAddress -IPAddress 10.15.200.2 -PrefixLength 16 -InterfaceIndex (Get-NetAdapter).ifIndex -DefaultGateway 10.15.255.254
+New-NetIPAddress -IPAddress 10.15.200.3 -PrefixLength 16 -InterfaceIndex (Get-NetAdapter).ifIndex -DefaultGateway 10.15.255.254
 
 # Ajout de l'adresse du serveur DNS
 Set-DnsClientServerAddress -InterfaceIndex (Get-NetAdapter).ifIndex -ServerAddresses ("10.15.200.1")
@@ -42,7 +42,9 @@ powercfg.exe /hibernate off
 
 - Sur le serveur SRVAD1, en GUI
   - `Server Manager` > `Manage` > `Add Server`
-  - "Servers that are in the current domain" > Ajouter `SRVAD2`
+  - "Servers that are in the current domain" > Ajouter `SRVAD3`
+
+- Recommencer pour les Serveurs SRVAD4 et SRVAD5.
 
 ---
 
