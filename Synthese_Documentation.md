@@ -8,13 +8,13 @@
 | 659 | G4-SRVAD4 | SRVAD4 | Serveur Active Directory | A jour : [Doc AD4 Install](S02/s02_INSTALL.md#installation-srvad3-srvad4-et-srvad5---serveur-windows-server-2022-core-avec-le-rôle-ad-ds) |  |
 | 660 | G4-SRVAD5 | SRVAD5 | Serveur Active Directory | A jour : [Doc AD5 Install](S02/s02_INSTALL.md#installation-srvad3-srvad4-et-srvad5---serveur-windows-server-2022-core-avec-le-rôle-ad-ds) |  |
 | 662 | G4-SRVDHCP | SRVDHCP | Serveur DHCP | A jour : [Doc DHCP Install](S02/s02_INSTALL.md#installation-srvdhcp---serveur-windows-server-2022-core-avec-le-rôle-dhcp) |  |
-| 663 | G4-SRVGLPI | SRVGLPI | Machine Virtuel, Base de données GLPI | A jour : [Doc GLPI](./S03/s03_INSTALL.md#installation-de-glpi) |  |
-| 664 | G4-SRVPROD | SRVPROD | Machine Virtuel, Serveur Windows 22, RAID 1 | A jour : [Doc Repertoires Partages](S05/s05_INSTALL.md#dossiers-partages---mettre-en-place-des-dossiers-réseaux-pour-les-utilisateurs) |  |
-| 665 | G4-SRVSAVE | SRVSAVE | Machine Virtuel, Serveur Windows 22, RAID 1, Script Robocopy | A jour : [Doc Sauvegarde Install](S05/s05_INSTALL.md#sauvegarde---mettre-en-place-une-sauvegarde-de-données) |  |
-| 666 | G4-SRVPRTG | SRVPRTG | Machine Virtuel, Serveur Windows 22 | A jour : [Doc Supervision Install](S06/s06_INSTALL.md#supervision---mise-en-place-dune-supervision-de-linfrastructure-réseau) |  |
-| 667 | G4-SRVWSUS | SRVWSUS | Machine Virtuel, Serveur Windows 22 | A jour : [Doc WSUS Install](S08/s08_INSTALL.md#installation-dun-serveur-de-gestion-de-mises-à-jour) |  |
-| 668 | G4-SRVVOIP | SRVVOIP | Machine Virtuel, Serveur FreePBX | A jour : [Doc VOIP Install](S09/s09_install.md#installation-et-configuration-dun-serveur-voip) |  |
-| 671 | G4-Routeur-R1 | vyos | Machine Virtuel, Routeur VYOS | A jour : [Doc Routeur Install](S04/s04_INSTALL.md#amélioration-de-linfrastructure-proxmox-avec-des-routeurs) |  |
-| 672 | G4-CLI-ADMIN | CLI-ADMIN | Machine Virtuel, Windows 10, RSAT, Putty, RDP | A jour : [Doc Install PC Admin](./S10/s10_INSTALL.md) | A jour : [Doc Paramétrage 3CX](S09/s09_USER_GUIDE.md#paramétrage-compte-3cx) ; [Doc Connexion Messagerie](S07/s07_USER_GUIDE.md#accès-à-la-messagerie-via-webmail) |
-| 673 | G4-CLI-FIN-P0223 | CLI-FIN-P0223 | Machine Virtuel, Windows 10, 3CX, Putty |  | A jour : [Doc Paramétrage 3CX](S09/s09_USER_GUIDE.md#paramétrage-compte-3cx) ; [Doc Connexion Messagerie](S07/s07_USER_GUIDE.md#accès-à-la-messagerie-via-webmail) |
-| 674 | G4-CLI-RD-P0141 | CLI-RD-P0141 | Machine Virtuel, Windows 10, 3CX, Putty |  | A jour : [Doc Paramétrage 3CX](S09/s09_USER_GUIDE.md#paramétrage-compte-3cx) ; [Doc Connexion Messagerie](S07/s07_USER_GUIDE.md#accès-à-la-messagerie-via-webmail) |
+| 663 | G4-SRVGLPI | SRVGLPI | Base de données GLPI | A jour : [Doc GLPI](./S03/s03_INSTALL.md#installation-de-glpi) |  |
+| 664 | G4-SRVPROD | SRVPROD | Serveur Windows 22 ; RAID 1 ; Serveur de fichiers | A jour : [Doc Repertoires Partages](S05/s05_INSTALL.md#dossiers-partages---mettre-en-place-des-dossiers-réseaux-pour-les-utilisateurs) |  |
+| 665 | G4-SRVSAVE | SRVSAVE | Serveur Windows 22, RAID 1, Script Robocopy | A jour : [Doc Sauvegarde Install](S05/s05_INSTALL.md#sauvegarde---mettre-en-place-une-sauvegarde-de-données) |  |
+| 666 | G4-SRVPRTG | SRVPRTG | Serveur Windows 22 ; PRTG | A jour : [Doc Supervision Install](S06/s06_INSTALL.md#supervision---mise-en-place-dune-supervision-de-linfrastructure-réseau) |  |
+| 667 | G4-SRVWSUS | SRVWSUS | Serveur Windows 22 ; WSUS | A jour : [Doc WSUS Install](S08/s08_INSTALL.md#installation-dun-serveur-de-gestion-de-mises-à-jour) |  |
+| 668 | G4-SRVVOIP | SRVVOIP | Serveur FreePBX | A jour : [Doc VOIP Install](S09/s09_install.md#installation-et-configuration-dun-serveur-voip) |  |
+| 671 | G4-Routeur-R1 | vyos | Routeur VYOS | A jour : [Doc Routeur Install](S04/s04_INSTALL.md#amélioration-de-linfrastructure-proxmox-avec-des-routeurs) |  |
+| 672 | G4-CLI-ADMIN | CLI-ADMIN | Windows 10, RSAT, Putty, RDP | A jour : [Doc Install PC Admin](./S10/s10_INSTALL.md) | A jour : [Doc Paramétrage 3CX](S09/s09_USER_GUIDE.md#paramétrage-compte-3cx) ; [Doc Connexion Messagerie](S07/s07_USER_GUIDE.md#accès-à-la-messagerie-via-webmail) |
+| 673 | G4-CLI-FIN-P0223 | CLI-FIN-P0223 | Windows 10, 3CX |  | A jour : [Doc Paramétrage 3CX](S09/s09_USER_GUIDE.md#paramétrage-compte-3cx) ; [Doc Connexion Messagerie](S07/s07_USER_GUIDE.md#accès-à-la-messagerie-via-webmail) |
+| 674 | G4-CLI-RD-P0141 | CLI-RD-P0141 | Windows 10, 3CX |  | A jour : [Doc Paramétrage 3CX](S09/s09_USER_GUIDE.md#paramétrage-compte-3cx) ; [Doc Connexion Messagerie](S07/s07_USER_GUIDE.md#accès-à-la-messagerie-via-webmail) |
