@@ -2,23 +2,23 @@
 ## Stockage des données sur un volume spécifique
 - Les données personnelles seront stockées sur le serveur de fichiers `SRVPROD` dans l'arborescence `Pharmgreen\00_Commun\002_Dossiers Individuels\`
   - L'emplacement du répertoire partagé `Pharmgreen` est libre. Sur notre serveur, il a été placé sur le disque de stockage `E:\`, configuré en RAID 1 ;
-## Sécurité de partage des dossiers par groupe AD
 ## Mappage des lecteurs sur les clients
-- Tous les lecteurs ont été mappés via une GPO. 
+- Tous les lecteurs ont été mappés via une GPO.
+- [Script de création des GPO](../Ressources/S5/GPO-MappingServices-Crea.ps1) ; [Script Complementaire GPO Mappage](../Ressources/S5/GPO-MappingServices-Modif-SecurityFiltering_Status.ps1)
 - Chaque utilisateur a accès à :
 ### 1. Dossier individuel, sur I:, accessible uniquement par cet utilisateur
-- La création des dossiers individuels a été faite par script Powershell, disponible sur ce GitHub dans `Ressources\S5\DossiersIndiv-Crea.ps1`
+- La création des dossiers individuels a été faite par script Powershell, disponible sur ce GitHub, [ici](../Ressources/S5/DossiersIndiv-Crea.ps1)
   - Ce script récupère les noms de l'ensemble des utilisateurs de l'Active Directory et liste leur `SAMAccountName` ;
   - Ensuite, via une structure itérative `Foreach`, il va :
     - Récupérer le nom de chaque utilisateur ;
     - Définir à quel endroit créer un dossier à ce nom ;
     - Créer le répertoire ;
     - Générer des droits d'accès `Full Control` pour l'utilisateur et le rendre propriétaire de son dossier.
-- On lance ensuite un second script pour affiner les droits sur les répertoires, disponible sur ce GitHub dans `Ressources\S5\DossiersIndiv-Deny-Deletion.ps1` :
+- On lance ensuite un second script pour affiner les droits sur les répertoires, disponible sur ce GitHub [ici](../Ressources/S5/DossiersIndiv-Deny-Deletion.ps1) :
   - Ce script récupère la liste des dossiers individuels ;
   - Il récupère la liste des utilisateurs standards ;
   - Ensuite, via une structure itérative `Foreach`, il va créer une règle interdisant la suppression du répertoire par les utilisateurs standards (les administrateurs en ont toujours la possibilité) ;
-- On lance enfin un troisième script pour définir ce répertoire comme étant le *Home Directory* de l'utilisateur, disponible sur ce GitHub dans `Ressources\S5\DossiersIndiv-HomeDir.ps1` :
+- On lance enfin un troisième script pour définir ce répertoire comme étant le *Home Directory* de l'utilisateur, disponible sur ce GitHub [ici](../Ressources/S5/DossiersIndiv-HomeDir.ps1) :
   - Ce script récupère la liste des utilisateurs de l'Active Directory ;
   - Il spécifie que l'attribut *Home Directory* de chaque utilisateur se situe à l'emplacement réseau où se trouve le répertoire créé précédemment pour chacun d'entre eux.
 - On crée enfin une GPO `User-Mappage-DossierIndividuel-I:-v1`
@@ -38,7 +38,7 @@
  
 ### 2. Dossier de service, sur J:, accessible par tous les utilisateurs d'un même service
 - Le mappage des dossiers de service a été effectué par GPO ;
-- Ces GPO ont été créées via script Powershell, disponible sur ce GitHub dans `Ressources\S5\GPO-MappingServices-Crea.ps1`
+- Ces GPO ont été créées via script Powershell, disponible sur ce GitHub [ici](../Ressources/S5/GPO-MappingServices-Crea.ps1)
   - Ce script se base sur un fichier CSV dans lequel sont respectivement listés, pour chaque service, le nom que nous donnerons à la GPO, l'emplacement où cette GPO devra être liée et le groupe d'utilisateurs auquel elle s'appliquera ;
   - Ensuite, pour chaque service, une structure itérative `Foreach` permet de créer une GPO, dont le nom est standardisé, liée à l'OU de notre choix et s'appliquant au groupe concerné.
 - Un second script permet ensuite d'ajouter `Domain Computers` et de retirer `Authenticated Users` aux `Security Filtering` ainsi que d'appliquer le statut `Computer Settings Disabled` à chacune des GPO de mappage ;
@@ -139,8 +139,8 @@ Garantir une sauvegarde régulière et fiable des données critiques tout en opt
 
 ___
 # Déplacement automatique des ordinateurs dans les bonnes OU
-- Le déplacement des ordinateurs dans les bonnes OU est géré par script Powershell, disponible sur ce GitHub dans `Ressources\S5\PC_DeplacementOU_auto.ps1`
-- Le script se base sur un fichier .CSV, disponible dans `Ressources\S5\PC_DeplacementOU.csv`, modifié à partir du fichier du personnel délivré par le service RH ;
+- Le déplacement des ordinateurs dans les bonnes OU est géré par script Powershell, disponible sur ce GitHub [ici](../Ressources/S5/PC_DeplacementOU_auto.ps1)
+- Le script se base sur un fichier .CSV, disponible [ici](../Ressources/S5/PC_DeplacementOU.csv), modifié à partir du fichier du personnel délivré par le service RH ;
   - le fichier .CSV ne contient que les départements des PCs ainsi que leur identifiant ;
 - Le script, ensuite, récupère la liste de tous les ordinateurs du domaine ;
 - Ensuite, via une structure itérative `Foreach`, il va traiter pour chaque PC du fichier .CSV :
@@ -155,7 +155,7 @@ ___
 
 ___
 # SÉCURITÉ D'ACCÈS - Restriction d'utilisation
-- La gestion des heures travaillées des personnels de l'entreprise a été effectuée par script Powershell, disponible sur ce GitHub dans `Ressources\S5\HOURS_Set-Semaine.ps1`
+- La gestion des heures travaillées des personnels de l'entreprise a été effectuée par script Powershell, disponible sur ce GitHub [ici](../Ressources/S5/HOURS_Set-Semaine.ps1)
 - Le script commence par définir une longue fonction de modification des heures de travail :
   - Paramètres :
     - Plage horaire de travail ;
