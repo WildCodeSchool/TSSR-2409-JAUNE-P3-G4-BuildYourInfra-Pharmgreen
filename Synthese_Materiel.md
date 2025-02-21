@@ -1,7 +1,8 @@
 | ID du matériel | Nom du matériel - Proxmox | Nom de machine | Type d'objet - Proxmox | O.S. | Fonction principale | N° de carte réseau | Adresse IP / CIDR | Nombre de disques | RAM |
 |----------------|---------------------------|----------------|------------------------|------|---------------------|--------------------|-------------------|-------------------|-----|
 | 648 | iredmail | iredmail | CT | Debian 12.7 | Serveur de Messagerie | vmbr655 | 10.15.190.10 /24 | disk 0 - Total : 8Go ; Libre : 3.47Go (45%) | Total : 4Go ; Utilisée : 2.4Go |
-| 655 | G4-pfsense-P3 | pfsense | VM | FreeBSD | Pare-Feu / VPN | vmbr1 ; vmbr655 ; vmbr670 | 10.0.0.3 /29 10.15.255.254 /16 10.17.255.254 /17 | disk 0 - Total : 10Go ; Libre : 6.6Go (89%) | Total : 2Go ; Utilisée : 0.8Go |
+| 649 | passbolt | passbolt | CT | Debian 12.7 | Serveur de Gestion de mots de passe | vmbr655 | 10.15.190.2 /24 | disk 0 - Total : 8Go ; Libre : 6.42Go (83%) | Total : 4Go ; Utilisée : 2.4Go |
+| 655 | G4-pfsense-P3 | pfsense | VM | FreeBSD | Pare-Feu / VPN | vmbr1 ; vmbr655 ; vmbr670 | 10.0.0.3 /29 10.15.255.254 /16 10.17.255.254 /17 | disk 0 - Total : 10Go ; Libre : 6.6Go (89%) | Total : 1Go ; Utilisée : 0.2Go |
 | 656 | G4-SRVAD1 | SRVAD1 | VM | Windows Server 2022 - Graphique | Active Directory / DNS | vmbr655 | 10.15.200.1 /24 | disk 1 - Total : 32Go ; Libre : 14.6Go (45%) ; disk 3 - Total : 20Go ; Libre : 1.16Go (06%) | Total : 4Go ; Utilisée : 3.3Go |
 | 657 | G4-SRVAD2 | SRVAD2 | VM | Windows Server 2022 - Graphique | Active Directory | vmbr655 | 10.15.200.2 /24 | disk 1 - Total : 32Go ; Libre : 13.7Go (43%) | Total : 4Go ; Utilisée : 2.4Go |
 | 658 | G4-SRVAD3 | SRVAD3 | VM | Windows Server 2022 - Core | Active Directory | vmbr655 | 10.15.200.3 /24 | disk 1 - Total : 32Go ; Libre : 17.28Go (54%) | Total : 2Go ; Utilisée : 0.8Go |
